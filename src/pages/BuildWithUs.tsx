@@ -1,5 +1,9 @@
 import { Layout } from '@/components/layout/Layout';
 import { SectionHeader } from '@/components/shared/SectionHeader';
+import { TallyEmbed } from '@/components/shared/TallyEmbed';
+
+// TODO: Replace with your actual Tally form ID
+const BUILD_WITH_US_FORM_ID = 'YOUR_BUILD_WITH_US_FORM_ID';
 
 const BuildWithUs = () => {
   return (
@@ -41,85 +45,9 @@ const BuildWithUs = () => {
         <div className="container-narrow">
           <SectionHeader title="Apply to Build With Us" />
           <div className="max-w-2xl">
-            <div className="bg-background border border-border rounded-lg p-8 md:p-12">
-              <div className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors"
-                    placeholder="you@example.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="linkedin" className="block text-sm font-medium mb-2">
-                    LinkedIn Profile (optional)
-                  </label>
-                  <input
-                    type="url"
-                    id="linkedin"
-                    className="w-full px-4 py-3 bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors"
-                    placeholder="https://linkedin.com/in/yourprofile"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="interest" className="block text-sm font-medium mb-2">
-                    What type of engagement interests you?
-                  </label>
-                  <select
-                    id="interest"
-                    className="w-full px-4 py-3 bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors"
-                  >
-                    <option value="">Select an option</option>
-                    <option value="fulltime">Full-time role</option>
-                    <option value="parttime">Part-time role</option>
-                    <option value="project">Project-based</option>
-                    <option value="open">Open to discussion</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="background" className="block text-sm font-medium mb-2">
-                    Tell us about your background and what you bring
-                  </label>
-                  <textarea
-                    id="background"
-                    rows={5}
-                    className="w-full px-4 py-3 bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors resize-none"
-                    placeholder="Share your experience, skills, and what kind of work energizes you..."
-                  />
-                </div>
-                <div>
-                  <label htmlFor="why" className="block text-sm font-medium mb-2">
-                    Why does this work resonate with you?
-                  </label>
-                  <textarea
-                    id="why"
-                    rows={4}
-                    className="w-full px-4 py-3 bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors resize-none"
-                    placeholder="What draws you to this approach to building?"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto px-8 py-3 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors"
-                >
-                  Submit Application
-                </button>
-              </div>
+            {/* Tally Form Embed */}
+            <div className="bg-background border border-border rounded-lg p-6 md:p-8">
+              <TallyEmbed formId={BUILD_WITH_US_FORM_ID} />
             </div>
           </div>
         </div>
