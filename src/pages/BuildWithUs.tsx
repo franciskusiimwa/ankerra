@@ -1,9 +1,6 @@
 import { Layout } from '@/components/layout/Layout';
 import { SectionHeader } from '@/components/shared/SectionHeader';
-import { TallyEmbed } from '@/components/shared/TallyEmbed';
-
-// TODO: Replace with your actual Tally form ID
-const BUILD_WITH_US_FORM_ID = 'YOUR_BUILD_WITH_US_FORM_ID';
+import { BuildInquiryForm } from '@/components/forms/BuildInquiryForm';
 
 const BuildWithUs = () => {
   return (
@@ -45,9 +42,9 @@ const BuildWithUs = () => {
         <div className="container-narrow">
           <SectionHeader title="Apply to Build With Us" />
           <div className="max-w-2xl">
-            {/* Tally Form Embed */}
+            {/* Build Inquiry Form */}
             <div className="bg-background border border-border rounded-lg p-6 md:p-8">
-              <TallyEmbed formId={BUILD_WITH_US_FORM_ID} />
+              <BuildInquiryForm />
             </div>
           </div>
         </div>

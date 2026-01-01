@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const footerLinks = [
   { href: '/philosophy', label: 'Philosophy' },
@@ -17,6 +18,8 @@ const legalLinks = [
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+  const [clickCount, setClickCount] = useState(0);
 
   return (
     <footer className="border-t border-border bg-card">
@@ -74,9 +77,24 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-border">
-          <p className="text-sm text-muted-foreground">
-            © {currentYear} Ankerra Ventures. All rights reserved.
-          </p>
+          <div className="flex items-center justify-between">
+            <p className="text-sm text-muted-foreground">
+              © {currentYear} Ankerra Ventures. All rights reserved.
+            </p>
+            {/* Hidden Admin Access - Triple click the dot */}
+            <button
+              onClick={() => {
+                const newCount = clickCount + 1;
+                setClickCount(newCount);
+                if (newCount >= 3) {
+                  navigate('/admin');
+                  setClickCount(0);
+                }
+              }}
+              className="w-2 h-2 rounded-full bg-border hover:bg-primary/20 transition-colors opacity-30 hover:opacity-100"
+              aria-label="Admin"
+            />
+          </div>
         </div>
       </div>
     </footer>

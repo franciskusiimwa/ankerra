@@ -1,6 +1,8 @@
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Mail, Calendar } from 'lucide-react';
+import { ContactForm } from '@/components/forms/ContactForm';
+import { SectionHeader } from '@/components/shared/SectionHeader';
 
 const Contact = () => {
   return (
@@ -54,6 +56,14 @@ const Contact = () => {
                 <Button variant="outline" className="w-full sm:w-auto">
                   Open Calendar
                 </Button>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="mt-12">
+              <SectionHeader title="Send Us a Message" />
+              <div className="bg-card border border-border rounded-lg p-6 md:p-8">
+                <ContactForm />
               </div>
             </div>
           </div>

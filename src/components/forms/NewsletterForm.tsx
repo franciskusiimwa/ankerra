@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { supabase, type NewsletterSubscription } from '@/lib/supabase';
+import { sendEmail } from '@/lib/email';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -53,8 +54,14 @@ export function NewsletterForm() {
           throw error;
         }
       } else {
+        // Send email notifications
+        await sendEmail({
+          type: 'newsletter',
+          data: subscription,
+        });
+
         toast.success('Successfully subscribed!', {
-          description: 'Thank you for joining our newsletter.',
+          description: 'Thank you for joining our newsletter. Check your email for confirmation.',
         });
         form.reset();
       }
@@ -70,7 +77,7 @@ export function NewsletterForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-3 max-w-md">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-3">
         <FormField
           control={form.control}
           name="email"
@@ -79,8 +86,8 @@ export function NewsletterForm() {
               <FormControl>
                 <Input
                   type="email"
-                  placeholder="Your email address"
-                  className="h-12 px-4 bg-background"
+                  placeholder="Enter your email"
+                  className="h-11"
                   {...field}
                 />
               </FormControl>
@@ -89,7 +96,7 @@ export function NewsletterForm() {
           )}
         />
 
-        <Button type="submit" variant="hero" size="lg" disabled={isSubmitting} className="shrink-0">
+        <Button type="submit" variant="hero" disabled={isSubmitting} className="shrink-0">
           {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           {isSubmitting ? 'Subscribing...' : 'Subscribe'}
         </Button>

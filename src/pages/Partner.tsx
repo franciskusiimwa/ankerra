@@ -1,9 +1,6 @@
 import { Layout } from '@/components/layout/Layout';
 import { SectionHeader } from '@/components/shared/SectionHeader';
-import { TallyEmbed } from '@/components/shared/TallyEmbed';
-
-// TODO: Replace with your actual Tally form ID
-const PARTNER_FORM_ID = 'YOUR_PARTNER_FORM_ID';
+import { PartnerForm } from '@/components/forms/PartnerForm';
 
 const Partner = () => {
   return (
@@ -46,9 +43,9 @@ const Partner = () => {
               Please share a bit about yourself, how you'd like to contribute, and what draws you to this work. We review every submission carefully.
             </p>
             
-            {/* Tally Form Embed */}
+            {/* Partner Form */}
             <div className="bg-background border border-border rounded-lg p-6 md:p-8">
-              <TallyEmbed formId={PARTNER_FORM_ID} />
+              <PartnerForm />
             </div>
           </div>
         </div>
