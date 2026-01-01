@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import ankerraLogo from '@/assets/ankerra-logo.png';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -44,9 +45,9 @@ export function Navigation() {
           {/* Logo */}
           <Link
             to="/"
-            className="font-semibold text-lg tracking-tight hover:opacity-70 transition-opacity"
+            className="hover:opacity-70 transition-opacity"
           >
-            Venture Builder
+            <img src={ankerraLogo} alt="Ankerra Ventures" className="h-7 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
