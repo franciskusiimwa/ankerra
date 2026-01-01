@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import ankerraLogo from '@/assets/ankerra-logo.png';
 
 const footerLinks = [
   { href: '/philosophy', label: 'Philosophy' },
@@ -26,9 +27,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link
               to="/"
-              className="font-semibold text-lg tracking-tight hover:opacity-70 transition-opacity"
+              className="inline-block hover:opacity-70 transition-opacity"
             >
-              Venture Builder
+              <img src={ankerraLogo} alt="Ankerra Ventures" className="h-8 w-auto" />
             </Link>
             <p className="mt-4 text-muted-foreground max-w-sm leading-relaxed">
               We build with care, clarity, and conviction.
@@ -73,7 +74,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-border">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Venture Builder. All rights reserved.
+            © {currentYear} Ankerra Ventures. All rights reserved.
           </p>
         </div>
       </div>
